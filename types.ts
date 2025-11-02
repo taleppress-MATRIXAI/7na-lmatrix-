@@ -1,52 +1,53 @@
-export interface StrategySummary {
+export interface AnimeSummary {
   id: number;
   title: string;
   image: string;
-  timeframe: string;
-  assetClass: string;
-  riskLevel: 'Low' | 'Medium' | 'High';
+  episodes: number;
+  genre: string;
+  rating: number;
+  status: 'Ongoing' | 'Completed' | 'Upcoming';
 }
 
-export interface StrategyRule {
+export interface Character {
   id: number;
   name: string;
   description: string;
-  category: 'Indicator' | 'Price Action' | 'Risk Management' | 'Entry' | 'Exit';
+  role: 'Main' | 'Supporting' | 'Antagonist';
 }
 
-export interface ExecutionStep {
+export interface Episode {
   number: number;
-  step: string;
+  title: string;
+  duration: string;
 }
 
-export interface Strategy extends StrategySummary {
-  rules: StrategyRule[];
-  executionSteps: {
-    name: string;
-    steps: ExecutionStep[];
-  }[];
-  summary: string;
+export interface Anime extends AnimeSummary {
+  characters: Character[];
+  episodeList: Episode[];
+  synopsis: string;
+  year: number;
+  studio: string;
 }
 
-export type TradingConcept = 'PRICE ACTION' | 'ICT' | 'SK SESTEM' | 'SPmodel' | 'SMC';
+export type AnimeGenre = 'Action' | 'Adventure' | 'Comedy' | 'Drama' | 'Fantasy' | 'Horror' | 'Mystery' | 'Romance' | 'Sci-Fi' | 'Slice of Life';
 
 export type DayOfWeek = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 
-export interface PlannedTrade {
-  id: string; // unique id for each planned item
+export interface PlannedWatch {
+  id: string;
   day: DayOfWeek;
-  concept: TradingConcept;
-  strategy: StrategySummary;
+  genre: AnimeGenre;
+  anime: AnimeSummary;
 }
 
 export interface WatchlistItem {
     id: number;
     name: string;
     original: string;
-    assetClass: string;
+    genre: string;
 }
 
-export interface BookSummary {
+export interface MangaSummary {
   id: number;
   title: string;
   author: string;
@@ -60,17 +61,17 @@ export interface ProductSummary {
   image: string;
   description: string;
   price: number;
-  includedBooks: number;
+  includedItems: number;
   tags: string[];
 }
 
-export type SearchResult = (StrategySummary & { type: 'strategy' }) | (BookSummary & { type: 'book' });
+export type SearchResult = (AnimeSummary & { type: 'anime' }) | (MangaSummary & { type: 'manga' });
 
 export interface NewsEvent {
   id: string;
   title: string;
-  date: string; // YYYY-MM-DD format
-  time: string; // HH:mm (24h)
+  date: string;
+  time: string;
   impact: 'High' | 'Medium' | 'Low';
   image: string;
 }
