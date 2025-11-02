@@ -8,6 +8,24 @@ export interface AnimeSummary {
   status: 'Ongoing' | 'Completed' | 'Upcoming';
 }
 
+export interface StrategySummary {
+  id: number;
+  title: string;
+  image: string;
+  timeframe: string;
+  assetClass: string;
+  rating: number;
+  riskLevel: string;
+}
+
+export interface BookSummary {
+  id: number;
+  title: string;
+  author: string;
+  image: string;
+  tags: string[];
+}
+
 export interface Character {
   id: number;
   name: string;
@@ -29,7 +47,27 @@ export interface Anime extends AnimeSummary {
   studio: string;
 }
 
+export interface Rule {
+  id: number;
+  name: string;
+  description: string;
+  category: string;
+}
+
+export interface ExecutionStep {
+  number: number;
+  step: string;
+}
+
+export interface Strategy extends StrategySummary {
+  rules?: Rule[];
+  executionSteps?: { steps: ExecutionStep[] }[];
+  summary?: string;
+}
+
 export type AnimeGenre = 'Action' | 'Adventure' | 'Comedy' | 'Drama' | 'Fantasy' | 'Horror' | 'Mystery' | 'Romance' | 'Sci-Fi' | 'Slice of Life';
+
+export type TradingConcept = 'PRICE ACTION' | 'TREND FOLLOWING' | 'MEAN REVERSION' | 'BREAKOUT' | 'MOMENTUM' | 'SCALPING' | 'SWING TRADING' | 'POSITION TRADING';
 
 export type DayOfWeek = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 
@@ -40,11 +78,18 @@ export interface PlannedWatch {
   anime: AnimeSummary;
 }
 
+export interface PlannedTrade {
+  id: string;
+  day: DayOfWeek;
+  concept: TradingConcept;
+  strategy: StrategySummary;
+}
+
 export interface WatchlistItem {
     id: number;
     name: string;
     original: string;
-    genre: string;
+    assetClass: string;
 }
 
 export interface MangaSummary {
@@ -65,7 +110,7 @@ export interface ProductSummary {
   tags: string[];
 }
 
-export type SearchResult = (AnimeSummary & { type: 'anime' }) | (MangaSummary & { type: 'manga' });
+export type SearchResult = (AnimeSummary & { type: 'anime' }) | (MangaSummary & { type: 'manga' }) | (StrategySummary & { type: 'strategy' }) | (BookSummary & { type: 'book' });
 
 export interface NewsEvent {
   id: string;

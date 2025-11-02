@@ -1,5 +1,5 @@
 import { HomeIcon, BookOpenIcon, PlayIcon, ChartBarIcon, NewspaperIcon, CalendarIcon, ShoppingCartIcon, SparklesIcon } from './components/icons/Icons';
-import { DayOfWeek, AnimeGenre } from './types';
+import { DayOfWeek, AnimeGenre, TradingConcept } from './types';
 
 export const NAV_ITEMS = [
   { href: '/', label: 'Home', icon: HomeIcon },
@@ -19,3 +19,4 @@ export const MORE_NAV_ITEMS = [
 
 export const DAYS_OF_WEEK: DayOfWeek[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 export const ANIME_GENRES: AnimeGenre[] = ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Mystery', 'Romance', 'Sci-Fi', 'Slice of Life'];
+export const TRADING_CONCEPTS: TradingConcept[] = ['PRICE ACTION', 'TREND FOLLOWING', 'MEAN REVERSION', 'BREAKOUT', 'MOMENTUM', 'SCALPING', 'SWING TRADING', 'POSITION TRADING'];
