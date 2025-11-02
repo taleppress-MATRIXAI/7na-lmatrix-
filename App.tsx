@@ -21,13 +21,13 @@ const App: React.FC = () => {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/strategies" element={<Recipes />} />
-            <Route path="/strategy/:id" element={<RecipeDetail />} />
-            <Route path="/trade/:id" element={<CookingMode />} />
+            <Route path="/anime" element={<Recipes />} />
+            <Route path="/anime/:id" element={<RecipeDetail />} />
+            <Route path="/watch/:id" element={<CookingMode />} />
             <Route path="/planner" element={<Planner />} />
-            <Route path="/trades-list" element={<ShoppingList />} />
+            <Route path="/watchlist" element={<ShoppingList />} />
             <Route path="/assistant" element={<Assistant />} />
-            <Route path="/books" element={<Books />} />
+            <Route path="/manga" element={<Books />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/products" element={<Products />} />
             <Route path="/news" element={<News />} />
